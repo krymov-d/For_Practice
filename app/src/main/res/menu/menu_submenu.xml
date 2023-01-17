@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_settings"
+        android:title="Settings">
+        <menu>
+            <item
+                android:id="@+id/menu_login"
+                android:title="Login" />
+            <item
+                android:id="@+id/menu_password"
+                android:title="Password" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/menu_read"
+        android:title="Read">
+        <menu>
+            <item
+                android:id="@+id/menu_read_news"
+                android:title="News" />
+            <item
+                android:id="@+id/menu_read_other"
+                android:title="Other" />
+        </menu>
+    </item>
+</menu>

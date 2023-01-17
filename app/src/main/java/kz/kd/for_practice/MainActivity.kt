@@ -31,6 +31,12 @@ class MainActivity : AppCompatActivity(), PopupMenu.OnMenuItemClickListener {
             popup.setOnMenuItemClickListener(this)
             popup.show()
         }
+
+        val btnSubMenu: Button = findViewById(R.id.btn_submenu)
+        btnSubMenu.setOnClickListener {
+            val intent = Intent(this, SubMenuActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateContextMenu(
