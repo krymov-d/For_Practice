@@ -4,50 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SecondActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tb_main"
+        android:id="@+id/tb_second"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@id/tv_text"
+        android:background="?attr/customPrimary"
+        app:layout_constraintBottom_toTopOf="@id/tv_text_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0"
-        app:title="Main Activity" />
+        app:logo="@drawable/ic_vector_search"
+        app:subtitle="Stepik practice"
+        app:subtitleTextAppearance="@style/SubtitleTextStyle"
+        app:title="Second Activity"
+        app:titleMarginStart="32dp"
+        app:titleTextAppearance="@style/TitleTextStyle"
+        app:titleTextColor="@color/white" />
 
     <TextView
-        android:id="@+id/tv_text"
+        android:id="@+id/tv_text_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_there"
+        android:text="@string/general_kenobi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_next_activity"
+        android:id="@+id/btn_previous_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next_activity"
+        android:backgroundTint="?attr/customSecondary"
+        android:text="@string/previous_activity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_text" />
-
-    <Button
-        android:id="@+id/btn_popup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/orange_dark"
-        android:text="@string/pop_up"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_next_activity"
-        app:layout_constraintVertical_bias="0" />
+        app:layout_constraintTop_toBottomOf="@id/tv_text_2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

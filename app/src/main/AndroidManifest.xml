@@ -25,6 +25,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity android:name="kz.kd.for_practice.SecondActivity" />
     </application>
 
 </manifest>
