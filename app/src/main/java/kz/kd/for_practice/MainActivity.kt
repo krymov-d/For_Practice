@@ -43,6 +43,12 @@ class MainActivity : AppCompatActivity(), PopupMenu.OnMenuItemClickListener {
             val intent = Intent(this, MenuGroupActivity::class.java)
             startActivity(intent)
         }
+
+        val btnMenuBurger: Button = findViewById(R.id.btn_menu_burger)
+        btnMenuBurger.setOnClickListener {
+            val intent = Intent(this, MenuBurgerActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateContextMenu(

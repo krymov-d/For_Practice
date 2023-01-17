@@ -28,6 +28,7 @@
         <activity android:name="kz.kd.for_practice.SecondActivity" />
         <activity android:name="kz.kd.for_practice.SubMenuActivity" />
         <activity android:name="kz.kd.for_practice.MenuGroupActivity" />
+        <activity android:name="kz.kd.for_practice.MenuBurgerActivity" />
     </application>
 
 </manifest>

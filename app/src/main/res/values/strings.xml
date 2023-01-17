@@ -7,4 +7,7 @@
     <string name="pop_up">Pop-Up</string>
     <string name="sub_menu">Sub Menu</string>
     <string name="menu_group">Menu Group</string>
+    <string name="burger_menu">Burger Menu</string>
+    <string name="nav_opened">Open Nav Drawer</string>
+    <string name="nav_closed">Close Nav Drawer</string>
 </resources>
