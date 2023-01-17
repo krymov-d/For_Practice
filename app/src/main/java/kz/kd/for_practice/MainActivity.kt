@@ -8,7 +8,7 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), PopupMenu.OnMenuItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,6 +22,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         registerForContextMenu(findViewById(R.id.btn_next_activity))
+
+        val btnPopUp: Button = findViewById(R.id.btn_popup)
+        btnPopUp.setOnClickListener {
+            val popup = PopupMenu(this, it)
+            val inflater: MenuInflater = popup.menuInflater
+            inflater.inflate(R.menu.menu_main, popup.menu)
+            popup.setOnMenuItemClickListener(this)
+            popup.show()
+        }
     }
 
     override fun onCreateContextMenu(
@@ -66,6 +75,20 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onMenuItemClick(p0: MenuItem?): Boolean {
+        return when (p0?.itemId) {
+            R.id.menu_close -> {
+                Toast.makeText(this, "Close", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.menu_more -> {
+                Toast.makeText(this, "More", Toast.LENGTH_SHORT).show()
+                true
+            }
+            else -> false
         }
     }
 }
