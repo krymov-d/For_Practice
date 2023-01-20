@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">For_Practice</string>
+    <string name="date_picker">Date Picker</string>
+    <string name="time_picker">Time Picker</string>
+    <string name="alert_dialog">Alert dialog</string>
+    <string name="alert_dialog_list">Alert Dialog List</string>
+    <string name="alert_dialog_multiple_choice">Alert Dialog Multiple Choice</string>
+    <string name="alert_dialog_single_choice">Alert Dialog Single Choice</string>
+    <string name="dialog_custom">Dialog Custom</string>
+    <string name="first_dialog_fragment">First Dialog Fragment</string>
+    <string name="second_dialog_fragment">Second Dialog Fragment</string>
 </resources>
