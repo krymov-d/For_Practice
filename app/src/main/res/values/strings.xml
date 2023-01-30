@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">For_Practice</string>
+    <string name="bottom_sheet_dialog">Bottom Sheet Dialog!</string>
+    <string name="standard_bsd">Standard BSD</string>
+    <string name="bottom_sheet_dialog_title">Bottom Sheet Dialog Title</string>
+    <string name="bottom_sheet_dialog_sub_title">Bottom Sheet Dialog Sub Title</string>
+    <string name="bottom_sheet_dialog_action">Bottom Sheet Dialog Action</string>
 </resources>
