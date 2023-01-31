@@ -28,6 +28,17 @@
         app:layout_constraintTop_toBottomOf="@id/btn_bsd"
         app:layout_constraintVertical_bias="0" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_bsd_expandable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/expandable_bsd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_bsd_standard"
+        app:layout_constraintVertical_bias="0" />
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator"
         android:layout_width="match_parent"

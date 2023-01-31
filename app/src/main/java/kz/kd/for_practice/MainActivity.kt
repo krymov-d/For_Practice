@@ -11,15 +11,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnBST: Button = findViewById(R.id.btn_bsd)
-        btnBST.setOnClickListener {
+        val btnBSD: Button = findViewById(R.id.btn_bsd)
+        btnBSD.setOnClickListener {
             BottomSheetDialog().show(supportFragmentManager, null)
         }
 
-        val btnBSTStandard: Button = findViewById(R.id.btn_bsd_standard)
-        btnBSTStandard.setOnClickListener {
+        val btnBSDStandard: Button = findViewById(R.id.btn_bsd_standard)
+        btnBSDStandard.setOnClickListener {
             val coordinatorLayout: CoordinatorLayout = findViewById(R.id.coordinator)
             coordinatorLayout.isVisible = !coordinatorLayout.isVisible
+        }
+
+        val btnBSDExpandable: Button = findViewById(R.id.btn_bsd_expandable)
+        btnBSDExpandable.setOnClickListener {
+            BSDExpandable().show(supportFragmentManager, null)
         }
     }
 }

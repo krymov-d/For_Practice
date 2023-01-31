@@ -5,4 +5,8 @@
     <string name="bottom_sheet_dialog_title">Bottom Sheet Dialog Title</string>
     <string name="bottom_sheet_dialog_sub_title">Bottom Sheet Dialog Sub Title</string>
     <string name="bottom_sheet_dialog_action">Bottom Sheet Dialog Action</string>
+    <string name="main_text_1">Main Text 1</string>
+    <string name="main_text_2">Main Text 2</string>
+    <string name="the_fallen_order">The Fallen Order</string>
+    <string name="expandable_bsd">Expandable BSD</string>
 </resources>
