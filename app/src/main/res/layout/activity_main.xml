@@ -80,4 +80,17 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnv"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/teal_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1"
+        app:menu="@menu/bottom_navigation_menu"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
