@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.FrameLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -32,5 +33,17 @@ class BSDExpandable: BottomSheetDialogFragment() {
             }
         }
         return dialog
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.findViewById<Button>(R.id.btn_fo).setOnClickListener {
+            (activity as? BottomSheetListener)?.clicked("This is where the fun begins!")
+            dismiss()
+        }
+    }
+
+    interface BottomSheetListener {
+        fun clicked(text: String)
     }
 }

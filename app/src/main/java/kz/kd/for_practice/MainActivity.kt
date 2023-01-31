@@ -3,10 +3,11 @@ package kz.kd.for_practice
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.isVisible
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), BSDExpandable.BottomSheetListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,5 +27,9 @@ class MainActivity : AppCompatActivity() {
         btnBSDExpandable.setOnClickListener {
             BSDExpandable().show(supportFragmentManager, null)
         }
+    }
+
+    override fun clicked(text: String) {
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
     }
 }
