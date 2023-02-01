@@ -1,8 +1,8 @@
 package kz.kd.for_practice
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 
@@ -13,36 +13,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewPager = findViewById(R.id.viewpager)
-        val adapter = MyPagerAdapter()
+        val btnOne: Button = findViewById(R.id.viewpager_1)
+        btnOne.setOnClickListener{
+            val intent = Intent(this, ActivityViewPager1::class.java)
+            startActivity(intent)
+        }
 
-        viewPager.offscreenPageLimit = 1
-        viewPager.currentItem = 2
-        viewPager.adapter = adapter
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-                Log.d("App", "onPageScrolled: position=$position, " +
-                        "positionOffset=$positionOffset, " +
-                        "positionOffsetPixels=$positionOffsetPixels")
-            }
-
-            override fun onPageSelected(position: Int) {
-                Log.d("App", "onPageSelected: $position")
-                Toast.makeText(this@MainActivity, "onPageSelected: $position", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onPageScrollStateChanged(state: Int) {
-                Log.d("App", "onPageScrollStateChanged: $state")
-            }
-        })
-    }
-
-    override fun onDestroy() {
-            viewPager.clearOnPageChangeListeners()
-            super.onDestroy()
+        val btnTwo: Button = findViewById(R.id.viewpager_2)
+        btnTwo.setOnClickListener{
+            val intent = Intent(this, ActivityViewPager2::class.java)
+            startActivity(intent)
+        }
     }
 }
