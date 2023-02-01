@@ -1,5 +1,6 @@
 package kz.kd.for_practice
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -45,6 +46,12 @@ class MainActivity : AppCompatActivity(), BSDExpandable.BottomSheetListener {
                 }
                 else -> false
             }
+        }
+
+        val btnNextActivity: Button = findViewById(R.id.btn_new_activity)
+        btnNextActivity.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
         }
     }
 
