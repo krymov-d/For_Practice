@@ -14,9 +14,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
 
     <kz.kd.for_practice.CircledButton
+        android:id="@+id/circled_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="General Kenobi"
@@ -27,6 +29,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv"
+        app:layout_constraintVertical_bias="0.1"
         app:radius="4dp" />
+
+    <kz.kd.for_practice.TitleWithSubtitleItem
+        android:id="@+id/title_with_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/circled_button"
+        app:layout_constraintVertical_bias="0.1"
+        app:textTitle="You were my brother, Anakin!"
+        app:textSubTitle="I hate you!!!"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,12 +2,13 @@ package kz.kd.for_practice
 
 import android.content.Context
 import android.content.res.ColorStateList
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
@@ -77,5 +78,30 @@ class CircledButton @JvmOverloads constructor(
         }
 
         background = shapeDrawable
+    }
+}
+
+class TitleWithSubtitleItem @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : ConstraintLayout(context, attrs, defStyleAttr) {
+    init {
+        val view  = inflate(context, R.layout.item_title_with_subtitle, this)
+        val textTitle = view.findViewById<TextView>(R.id.title)
+        val textSubtitle = view.findViewById<TextView>(R.id.subTitle)
+
+        context.theme.obtainStyledAttributes(
+            attrs,
+            R.styleable.TitleWithSubtitleItem,
+            0, 0
+        ).apply {
+            try {
+                textTitle.text = this.getString(R.styleable.TitleWithSubtitleItem_textTitle)
+                textSubtitle.text = this.getString(R.styleable.TitleWithSubtitleItem_textSubTitle)
+            } finally {
+                recycle()
+            }
+        }
     }
 }
