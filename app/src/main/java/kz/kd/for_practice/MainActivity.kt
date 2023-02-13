@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
@@ -25,6 +26,15 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, subtitle, Toast.LENGTH_SHORT).show()
             titleWithSubtitleItem.getSubtitleTextView().text = "This is modified subtitle value"
         }
+
+        val dynamicTitleWithSubtitleView = TitleWithSubtitleItem(this).apply {
+            setTitle("It is custom TitleWithSubtitleItem")
+            setSubtitle("It is created from code")
+            setOnButtonClickListener { finish() }
+        }
+
+        val rootView: LinearLayoutCompat = findViewById(R.id.rootView)
+        rootView.addView(dynamicTitleWithSubtitleView)
     }
 }
 
@@ -50,6 +60,7 @@ class CircledButton @JvmOverloads constructor(
     private var hasBorder = false
     private var borderColor = COLOR_NONE
     private var borderSize = 0f
+
     init {
         context.theme.obtainStyledAttributes(
             attrs,
@@ -60,7 +71,8 @@ class CircledButton @JvmOverloads constructor(
                 radius = getDimensionPixelSize(R.styleable.CircledButton_radius, 0).toFloat()
                 hasBorder = getBoolean(R.styleable.CircledButton_hasBorder, false)
                 borderColor = getColor(R.styleable.CircledButton_borderColor, COLOR_NONE)
-                borderSize = getDimensionPixelSize(R.styleable.CircledButton_borderSize, 0).toFloat()
+                borderSize =
+                    getDimensionPixelSize(R.styleable.CircledButton_borderSize, 0).toFloat()
             } finally {
                 recycle()
             }
@@ -97,8 +109,9 @@ class TitleWithSubtitleItem @JvmOverloads constructor(
     private var button: CircledButton
     private var textTitle: TextView
     private var textSubtitle: TextView
+
     init {
-        val view  = inflate(context, R.layout.item_title_with_subtitle, this)
+        val view = inflate(context, R.layout.item_title_with_subtitle, this)
         textTitle = view.findViewById(R.id.title)
         textSubtitle = view.findViewById(R.id.subTitle)
         button = view.findViewById(R.id.c_btn)
@@ -122,4 +135,12 @@ class TitleWithSubtitleItem @JvmOverloads constructor(
     }
 
     fun getSubtitleTextView(): TextView = textSubtitle
+
+    fun setTitle(title: String) {
+        textTitle.text = title
+    }
+
+    fun setSubtitle(subtitle: String) {
+        textSubtitle.text = subtitle
+    }
 }
