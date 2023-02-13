@@ -16,6 +16,8 @@ import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var rootView: LinearLayoutCompat
+    private lateinit var dynamicTitleWithSubtitleView: TitleWithSubtitleItem
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,15 +27,16 @@ class MainActivity : AppCompatActivity() {
             val subtitle = titleWithSubtitleItem.getSubtitleTextView().text
             Toast.makeText(this, subtitle, Toast.LENGTH_SHORT).show()
             titleWithSubtitleItem.getSubtitleTextView().text = "This is modified subtitle value"
+            rootView.removeView(dynamicTitleWithSubtitleView)
         }
 
-        val dynamicTitleWithSubtitleView = TitleWithSubtitleItem(this).apply {
+        dynamicTitleWithSubtitleView = TitleWithSubtitleItem(this).apply {
             setTitle("It is custom TitleWithSubtitleItem")
             setSubtitle("It is created from code")
             setOnButtonClickListener { finish() }
         }
 
-        val rootView: LinearLayoutCompat = findViewById(R.id.rootView)
+        rootView = findViewById(R.id.rootView)
         rootView.addView(dynamicTitleWithSubtitleView)
     }
 }
@@ -46,6 +49,23 @@ class UnderlinedTextView @JvmOverloads constructor(
 
     init {
         paint.isUnderlineText = true
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        val widthFromParentSpec: Int = MeasureSpec.getSize(widthMeasureSpec)
+        val widthMode: Int = MeasureSpec.getMode(widthMeasureSpec)
+        val thisViewWidth = when (widthMode) {
+            MeasureSpec.AT_MOST -> 500
+            MeasureSpec.EXACTLY -> widthFromParentSpec
+            MeasureSpec.UNSPECIFIED -> 300
+            else -> -1
+        }
+
+        val heightFromParentSpec: Int = MeasureSpec.getSize(heightMeasureSpec)
+        val heightMode: Int = MeasureSpec.getMode(heightMeasureSpec)
+        val thisViewHeight = 50
+        setMeasuredDimension(thisViewWidth, thisViewHeight)
     }
 }
 
