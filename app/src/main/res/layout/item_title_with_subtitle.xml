@@ -22,6 +22,7 @@
         tools:text="subtitle" />
 
     <kz.kd.for_practice.CircledButton
+        android:id="@+id/c_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OPEN"

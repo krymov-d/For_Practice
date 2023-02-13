@@ -5,6 +5,7 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import android.util.AttributeSet
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
@@ -17,6 +18,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val titleWithSubtitleItem: TitleWithSubtitleItem = findViewById(R.id.title_with_subtitle)
+        titleWithSubtitleItem.setOnButtonClickListener {
+            val subtitle = titleWithSubtitleItem.getSubtitleTextView().text
+            Toast.makeText(this, subtitle, Toast.LENGTH_SHORT).show()
+            titleWithSubtitleItem.getSubtitleTextView().text = "This is modified subtitle value"
+        }
     }
 }
 
@@ -86,10 +94,14 @@ class TitleWithSubtitleItem @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
+    private var button: CircledButton
+    private var textTitle: TextView
+    private var textSubtitle: TextView
     init {
         val view  = inflate(context, R.layout.item_title_with_subtitle, this)
-        val textTitle = view.findViewById<TextView>(R.id.title)
-        val textSubtitle = view.findViewById<TextView>(R.id.subTitle)
+        textTitle = view.findViewById(R.id.title)
+        textSubtitle = view.findViewById(R.id.subTitle)
+        button = view.findViewById(R.id.c_btn)
 
         context.theme.obtainStyledAttributes(
             attrs,
@@ -104,4 +116,10 @@ class TitleWithSubtitleItem @JvmOverloads constructor(
             }
         }
     }
+
+    fun setOnButtonClickListener(onButtonClick: () -> Unit) {
+        button.setOnClickListener { onButtonClick() }
+    }
+
+    fun getSubtitleTextView(): TextView = textSubtitle
 }
