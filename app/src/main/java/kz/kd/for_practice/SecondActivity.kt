@@ -13,7 +13,7 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second)
 
 //        adb shell am start -a android.intent.action.VIEW -d "www.example.com/auth?email=azat@gmail.com&code=1234"
-        handleDeepLink()
+//        handleDeepLink()
     }
 
     private fun handleDeepLink() {
