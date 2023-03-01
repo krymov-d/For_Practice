@@ -6,13 +6,137 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/app_name_1"
+            android:textColor="@color/title_color"
+            android:textSize="22sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:id="@+id/toolbar_border"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/title_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintVertical_bias="0" />
+
+    <TextView
+        android:id="@+id/tv_step"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/montserrat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_border"
+        app:layout_constraintVertical_bias="0"
+        tools:text="Hello World!" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_one"
+        style="@style/btn_style"
+        app:layout_constraintBottom_toBottomOf="@id/btn_two"
+        app:layout_constraintEnd_toStartOf="@id/btn_two"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_two"
+        tools:text="One" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_two"
+        style="@style/btn_style"
+        app:layout_constraintBottom_toTopOf="@id/btn_five"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_step"
+        app:layout_constraintVertical_bias="1"
+        tools:text="Two" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_three"
+        style="@style/btn_style"
+        app:layout_constraintBottom_toBottomOf="@id/btn_two"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/btn_two"
+        app:layout_constraintTop_toTopOf="@id/btn_two"
+        tools:text="Three" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_four"
+        style="@style/btn_style"
+        app:layout_constraintBottom_toBottomOf="@id/btn_five"
+        app:layout_constraintEnd_toStartOf="@id/btn_five"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_five"
+        tools:text="Four" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_five"
+        style="@style/btn_style"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Five" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_six"
+        style="@style/btn_style"
+        app:layout_constraintBottom_toBottomOf="@id/btn_five"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/btn_five"
+        app:layout_constraintTop_toTopOf="@id/btn_five"
+        tools:text="Six" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_seven"
+        style="@style/btn_style"
+        app:layout_constraintBottom_toBottomOf="@id/btn_eight"
+        app:layout_constraintEnd_toStartOf="@id/btn_eight"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_eight"
+        tools:text="Seven" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_eight"
+        style="@style/btn_style"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_five"
+        app:layout_constraintVertical_bias="0"
+        tools:text="Eight" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_nine"
+        style="@style/btn_style"
+        app:layout_constraintBottom_toBottomOf="@id/btn_eight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/btn_eight"
+        app:layout_constraintTop_toTopOf="@id/btn_eight"
+        tools:text="Nine" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
