@@ -5,11 +5,20 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), IFBtnNewGame {
     private lateinit var tvSubtitle: TextView
     private lateinit var subtitleCross: String
     private lateinit var subtitleZero: String
     private var order = true
+    private lateinit var btnOne: Button
+    private lateinit var btnTwo: Button
+    private lateinit var btnThree: Button
+    private lateinit var btnFour: Button
+    private lateinit var btnFive: Button
+    private lateinit var btnSix: Button
+    private lateinit var btnSeven: Button
+    private lateinit var btnEight: Button
+    private lateinit var btnNine: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,53 +36,120 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initButtons() {
-        val btnOne: Button = findViewById(R.id.btn_one)
+        btnOne = findViewById(R.id.btn_one)
         btnOne.setOnClickListener {
             setBackground(btnOne)
+            verifyState()
         }
-        val btnTwo: Button = findViewById(R.id.btn_two)
+        btnTwo = findViewById(R.id.btn_two)
         btnTwo.setOnClickListener {
             setBackground(btnTwo)
+            verifyState()
         }
-        val btnThree: Button = findViewById(R.id.btn_three)
+        btnThree = findViewById(R.id.btn_three)
         btnThree.setOnClickListener {
             setBackground(btnThree)
+            verifyState()
         }
-        val btnFour: Button = findViewById(R.id.btn_four)
+        btnFour = findViewById(R.id.btn_four)
         btnFour.setOnClickListener {
             setBackground(btnFour)
+            verifyState()
         }
-        val btnFive: Button = findViewById(R.id.btn_five)
+        btnFive = findViewById(R.id.btn_five)
         btnFive.setOnClickListener {
             setBackground(btnFive)
+            verifyState()
         }
-        val btnSix: Button = findViewById(R.id.btn_six)
+        btnSix = findViewById(R.id.btn_six)
         btnSix.setOnClickListener {
             setBackground(btnSix)
+            verifyState()
         }
-        val btnSeven: Button = findViewById(R.id.btn_seven)
+        btnSeven = findViewById(R.id.btn_seven)
         btnSeven.setOnClickListener {
             setBackground(btnSeven)
+            verifyState()
         }
-        val btnEight: Button = findViewById(R.id.btn_eight)
+        btnEight = findViewById(R.id.btn_eight)
         btnEight.setOnClickListener {
             setBackground(btnEight)
+            verifyState()
         }
-        val btnNine: Button = findViewById(R.id.btn_nine)
+        btnNine = findViewById(R.id.btn_nine)
         btnNine.setOnClickListener {
             setBackground(btnNine)
+            verifyState()
         }
     }
 
     private fun setBackground(button: Button) {
+        button.isClickable = false
         if (order) {
             button.setBackgroundResource(R.drawable.btn_bg_cross)
+            button.text = "X"
             tvSubtitle.text = subtitleZero
             order = !order
         } else {
             button.setBackgroundResource(R.drawable.btn_bg_zero)
+            button.text = "O"
             tvSubtitle.text = subtitleCross
             order = !order
         }
+    }
+
+    private fun verifyState() {
+        if (btnOne.text == btnTwo.text && btnTwo.text == btnThree.text && btnOne.text != "") {
+            showDialog(btnOne.text.toString())
+        } else if (btnOne.text == btnFour.text && btnFour.text == btnSeven.text && btnOne.text != "") {
+            showDialog(btnOne.text.toString())
+        } else if (btnOne.text == btnFive.text && btnFive.text == btnNine.text && btnOne.text != "") {
+            showDialog(btnOne.text.toString())
+        } else if (btnTwo.text == btnFive.text && btnFive.text == btnEight.text && btnTwo.text != "") {
+            showDialog(btnTwo.text.toString())
+        } else if (btnThree.text == btnSix.text && btnSix.text == btnNine.text && btnThree.text != "") {
+            showDialog(btnThree.text.toString())
+        } else if (btnThree.text == btnFive.text && btnFive.text == btnSeven.text && btnThree.text != "") {
+            showDialog(btnThree.text.toString())
+        } else if (btnFour.text == btnFive.text && btnFive.text == btnSix.text && btnFour.text != "") {
+            showDialog(btnFour.text.toString())
+        } else if (btnSeven.text == btnEight.text && btnEight.text == btnNine.text && btnSeven.text != "") {
+            showDialog(btnSeven.text.toString())
+        }
+    }
+
+    private fun showDialog(text: String) {
+        DFWin(this, text).show(supportFragmentManager, null)
+    }
+
+    override fun btnNewGameClicked() {
+        btnOne.setBackgroundResource(R.drawable.btn_bg_default)
+        btnOne.isClickable = true
+        btnOne.text = ""
+        btnTwo.setBackgroundResource(R.drawable.btn_bg_default)
+        btnTwo.isClickable = true
+        btnTwo.text = ""
+        btnThree.setBackgroundResource(R.drawable.btn_bg_default)
+        btnThree.isClickable = true
+        btnThree.text = ""
+        btnFour.setBackgroundResource(R.drawable.btn_bg_default)
+        btnFour.isClickable = true
+        btnFour.text = ""
+        btnFive.setBackgroundResource(R.drawable.btn_bg_default)
+        btnFive.isClickable = true
+        btnFive.text = ""
+        btnSix.setBackgroundResource(R.drawable.btn_bg_default)
+        btnSix.isClickable = true
+        btnSix.text = ""
+        btnSeven.setBackgroundResource(R.drawable.btn_bg_default)
+        btnSeven.isClickable = true
+        btnSeven.text = ""
+        btnEight.setBackgroundResource(R.drawable.btn_bg_default)
+        btnEight.isClickable = true
+        btnEight.text = ""
+        btnNine.setBackgroundResource(R.drawable.btn_bg_default)
+        btnNine.isClickable = true
+        btnNine.text = ""
+        tvSubtitle.text = subtitleCross
     }
 }
