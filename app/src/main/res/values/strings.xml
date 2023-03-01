@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">For_Practice</string>
     <string name="app_name_1">Крестики и нолики</string>
+    <string name="step_cross">Ходит: крестик</string>
+    <string name="step_zero">Ходит: нолик</string>
+    <string name="win_cross">Выйграл крестик!</string>
+    <string name="win_zero">Выйграл нолик!</string>
+    <string name="new_game">Начать заново</string>
 </resources>

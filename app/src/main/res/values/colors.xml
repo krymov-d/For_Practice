@@ -9,5 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="title_color">#888080</color>
+    <color name="subtitle_color">#000000</color>
     <color name="btn_bg_default">#E0DBD7</color>
+    <color name="btn_bg_cross">#6DC0FC</color>
+    <color name="btn_bg_zero">#E557BE</color>
 </resources>
