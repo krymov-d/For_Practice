@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity(), IFBtnNewGame {
     private lateinit var btnSeven: Button
     private lateinit var btnEight: Button
     private lateinit var btnNine: Button
+    private var btnList: MutableList<Button> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,53 +38,37 @@ class MainActivity : AppCompatActivity(), IFBtnNewGame {
 
     private fun initButtons() {
         btnOne = findViewById(R.id.btn_one)
-        btnOne.setOnClickListener {
-            setBackground(btnOne)
-            verifyState()
-        }
         btnTwo = findViewById(R.id.btn_two)
-        btnTwo.setOnClickListener {
-            setBackground(btnTwo)
-            verifyState()
-        }
         btnThree = findViewById(R.id.btn_three)
-        btnThree.setOnClickListener {
-            setBackground(btnThree)
-            verifyState()
-        }
         btnFour = findViewById(R.id.btn_four)
-        btnFour.setOnClickListener {
-            setBackground(btnFour)
-            verifyState()
-        }
         btnFive = findViewById(R.id.btn_five)
-        btnFive.setOnClickListener {
-            setBackground(btnFive)
-            verifyState()
-        }
         btnSix = findViewById(R.id.btn_six)
-        btnSix.setOnClickListener {
-            setBackground(btnSix)
-            verifyState()
-        }
         btnSeven = findViewById(R.id.btn_seven)
-        btnSeven.setOnClickListener {
-            setBackground(btnSeven)
-            verifyState()
-        }
         btnEight = findViewById(R.id.btn_eight)
-        btnEight.setOnClickListener {
-            setBackground(btnEight)
-            verifyState()
-        }
         btnNine = findViewById(R.id.btn_nine)
-        btnNine.setOnClickListener {
-            setBackground(btnNine)
-            verifyState()
+
+        btnList.addAll(
+            listOf(
+                btnOne,
+                btnTwo,
+                btnThree,
+                btnFour,
+                btnFive,
+                btnSix,
+                btnSeven,
+                btnEight,
+                btnNine
+            )
+        )
+
+        for (button in btnList) {
+            button.setOnClickListener {
+                onButtonClicked(button)
+            }
         }
     }
 
-    private fun setBackground(button: Button) {
+    private fun onButtonClicked(button: Button) {
         button.isClickable = false
         if (order) {
             button.setBackgroundResource(R.drawable.btn_bg_cross)
@@ -96,60 +81,40 @@ class MainActivity : AppCompatActivity(), IFBtnNewGame {
             tvSubtitle.text = subtitleCross
             order = !order
         }
+
+        determineTheWinner()
     }
 
-    private fun verifyState() {
+    private fun determineTheWinner() {
         if (btnOne.text == btnTwo.text && btnTwo.text == btnThree.text && btnOne.text != "") {
-            showDialog(btnOne.text.toString())
+            showDFTheWinner(btnOne.text.toString())
         } else if (btnOne.text == btnFour.text && btnFour.text == btnSeven.text && btnOne.text != "") {
-            showDialog(btnOne.text.toString())
+            showDFTheWinner(btnOne.text.toString())
         } else if (btnOne.text == btnFive.text && btnFive.text == btnNine.text && btnOne.text != "") {
-            showDialog(btnOne.text.toString())
+            showDFTheWinner(btnOne.text.toString())
         } else if (btnTwo.text == btnFive.text && btnFive.text == btnEight.text && btnTwo.text != "") {
-            showDialog(btnTwo.text.toString())
+            showDFTheWinner(btnTwo.text.toString())
         } else if (btnThree.text == btnSix.text && btnSix.text == btnNine.text && btnThree.text != "") {
-            showDialog(btnThree.text.toString())
+            showDFTheWinner(btnThree.text.toString())
         } else if (btnThree.text == btnFive.text && btnFive.text == btnSeven.text && btnThree.text != "") {
-            showDialog(btnThree.text.toString())
+            showDFTheWinner(btnThree.text.toString())
         } else if (btnFour.text == btnFive.text && btnFive.text == btnSix.text && btnFour.text != "") {
-            showDialog(btnFour.text.toString())
+            showDFTheWinner(btnFour.text.toString())
         } else if (btnSeven.text == btnEight.text && btnEight.text == btnNine.text && btnSeven.text != "") {
-            showDialog(btnSeven.text.toString())
+            showDFTheWinner(btnSeven.text.toString())
         }
     }
 
-    private fun showDialog(text: String) {
-        DFWin(this, text).show(supportFragmentManager, null)
+    private fun showDFTheWinner(text: String) {
+        DFTheWinner(this, text).show(supportFragmentManager, null)
     }
 
     override fun btnNewGameClicked() {
-        btnOne.setBackgroundResource(R.drawable.btn_bg_default)
-        btnOne.isClickable = true
-        btnOne.text = ""
-        btnTwo.setBackgroundResource(R.drawable.btn_bg_default)
-        btnTwo.isClickable = true
-        btnTwo.text = ""
-        btnThree.setBackgroundResource(R.drawable.btn_bg_default)
-        btnThree.isClickable = true
-        btnThree.text = ""
-        btnFour.setBackgroundResource(R.drawable.btn_bg_default)
-        btnFour.isClickable = true
-        btnFour.text = ""
-        btnFive.setBackgroundResource(R.drawable.btn_bg_default)
-        btnFive.isClickable = true
-        btnFive.text = ""
-        btnSix.setBackgroundResource(R.drawable.btn_bg_default)
-        btnSix.isClickable = true
-        btnSix.text = ""
-        btnSeven.setBackgroundResource(R.drawable.btn_bg_default)
-        btnSeven.isClickable = true
-        btnSeven.text = ""
-        btnEight.setBackgroundResource(R.drawable.btn_bg_default)
-        btnEight.isClickable = true
-        btnEight.text = ""
-        btnNine.setBackgroundResource(R.drawable.btn_bg_default)
-        btnNine.isClickable = true
-        btnNine.text = ""
+        for (button in btnList) {
+            button.setBackgroundResource(R.drawable.btn_bg_default)
+            button.isClickable = true
+            button.text = ""
+        }
         tvSubtitle.text = subtitleCross
     }
 }

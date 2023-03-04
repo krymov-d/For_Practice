@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 
-class DFWin(private val listener: IFBtnNewGame, private val winnerText: String) :
+class DFTheWinner(private val listener: IFBtnNewGame, private val winnerText: String) :
     DialogFragment(R.layout.dialog_win) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
