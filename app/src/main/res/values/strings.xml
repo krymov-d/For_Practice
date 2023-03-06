@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">For_Practice</string>
+    <string name="app_name_2">Rock Paper Scissors</string>
+    <string name="choose_weapon">Выберите оружие</string>
+    <string name="choose">Выбрать</string>
+    <string name="option_rock">Вы выбрали камень!</string>
+    <string name="option_paper">Вы выбрали бумагу!</string>
+    <string name="option_scissor">Вы выбрали ножницы!</string>
+    <string name="loser">Вы проиграли!</string>
+    <string name="winner">Вы выиграли!</string>
+    <string name="draw">Ничья!</string>
+    <string name="duel">Дуель!</string>
+    <string name="again">Еще!</string>
+    <string name="game_over">Your code does not work, loser!</string>
 </resources>

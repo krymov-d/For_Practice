@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="activity_bg">#F49090</color>
+    <color name="tb_title_color">#120B3F</color>
+    <color name="tv_text_color">#000000</color>
+    <color name="btn_choose_bg">#6DC0FC</color>
+    <color name="btn_choose_stroke">#159ECA</color>
+    <color name="btn_main_bg_edge">#971313</color>
+    <color name="btn_main_bg_center">#FF0000</color>
+    <color name="tv_win_color">#039000</color>
+    <color name="tv_lose_color">#971313</color>
 </resources>
